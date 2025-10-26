@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   Target, Zap, Brain, Heart, Clock, CheckCircle,
   AlertTriangle, TrendingUp, Calendar, Star, Award,
-  Activity, Thermometer, Wind, Shield, Plus, Save
+  Activity, Thermometer, Wind, Shield, Plus, Save, ArrowLeft
 } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import toast from 'react-hot-toast';
@@ -350,6 +350,21 @@ function StressManagementModule() {
       theme === 'dark' ? 'bg-gray-900' : 'bg-gradient-to-br from-purple-50 via-blue-50 to-teal-50'
     }`}>
       <div className="flex-1 overflow-y-auto p-4">
+        {/* Back Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.history.back()}
+          className={`mb-4 flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
+            theme === 'dark'
+              ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              : 'bg-white text-gray-700 hover:bg-gray-100'
+          } shadow-lg`}
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to Therapies</span>
+        </motion.button>
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

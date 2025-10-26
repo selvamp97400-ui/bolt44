@@ -311,6 +311,21 @@ function TetrisTherapyModule() {
       <div className={`h-screen flex flex-col items-center justify-center ${
         theme === 'dark' ? 'bg-gray-900' : 'bg-gradient-to-br from-purple-50 via-blue-50 to-teal-50'
       }`}>
+        {/* Back Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.history.back()}
+          className={`absolute top-4 left-4 flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
+            theme === 'dark'
+              ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              : 'bg-white text-gray-700 hover:bg-gray-100'
+          } shadow-lg`}
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to Therapies</span>
+        </motion.button>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
